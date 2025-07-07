@@ -42,7 +42,6 @@ async function run() {
 
     console.log(`::notice::Files from ${buildFolder} have been synced to ${s3Uri} in region ${region}.`);
 
-    // 設定 output (GitHub Actions 格式)
     const webURL = `http://${bucketName}.s3-website-${region}.amazonaws.com`;
     const githubOutput = process.env.GITHUB_OUTPUT;
     
