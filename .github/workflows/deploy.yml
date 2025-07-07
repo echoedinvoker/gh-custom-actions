@@ -73,5 +73,6 @@ jobs:
           bucket: demo-custom-action-bucket
           source: ./dist
       - name: Output web URL
-        run: echo "Web URL: ${{ steps.deploy.outputs.web-url }}"
+        run: |
+          echo "Web URL: ${{ steps.deploy.outputs.web-url }}"
 
