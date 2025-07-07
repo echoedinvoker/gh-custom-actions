@@ -1,0 +1,15 @@
+const core = require('@actions/core');
+const exec = require('@actions/exec');
+
+function run() {
+  const bucketName = core.getInput('bucket-name', { required: true });
+  const region = core.getInput('region', { required: true });
+  const buildFolder = core.getInput('build-folder', { required: true });
+
+  const s3Uri = `s3://${bucketName}`;
+  exec.exec(`aws s3 sync ${buildFolder} ${s3Uri} --region ${region}`)
+
+  core.notice(`Files from ${buildFolder} have been synced to ${s3Uri} in region ${region}.`);
+}
+
+run();
