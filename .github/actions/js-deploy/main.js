@@ -18,7 +18,6 @@
 // run();
 //
 const { execSync } = require('child_process');
-const fs = require('fs');
 
 async function run() {
   try {
@@ -46,7 +45,7 @@ async function run() {
     const githubOutput = process.env.GITHUB_OUTPUT;
     
     if (githubOutput) {
-      fs.appendFileSync(githubOutput, `web-url=${webURL}\n`);
+      execSync(`echo "web-url=${webURL}" >> ${githubOutput}`);
     }
     
   } catch (error) {
