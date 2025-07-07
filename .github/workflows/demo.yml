@@ -1,0 +1,11 @@
+name: Demo JavaScript Action
+on:
+  push:
+    branches:
+      - main
+jobs:
+  information:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run custom action
+        uses: ./.github/actions/js-demo
