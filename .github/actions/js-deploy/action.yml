@@ -11,6 +11,9 @@ inputs:
   source:
     description: 'The local directory or file to upload to the S3 bucket.'
     required: true
+outputs:
+  web-url:
+    description: 'The URL of the deployed S3 bucket.'
 runs:
   using: 'node20'
   main: 'main.js'

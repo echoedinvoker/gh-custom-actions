@@ -10,6 +10,10 @@ function run() {
   exec.exec(`aws s3 sync ${buildFolder} ${s3Uri} --region ${region}`)
 
   core.notice(`Files from ${buildFolder} have been synced to ${s3Uri} in region ${region}.`);
+
+  const webURL = `http://${bucketName}.s3-website-${region}.amazonaws.com`;
+  core.setOutput('web-url', webURL);
 }
 
 run();
+
