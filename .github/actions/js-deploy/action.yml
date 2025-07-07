@@ -15,5 +15,7 @@ outputs:
   web-url:
     description: 'The URL of the deployed S3 bucket.'
 runs:
-  using: 'node20'
-  main: 'main.js'
+  # using: 'node20'
+  # main: 'main.js'
+  using: 'docker'
+  image: 'Dockerfile'
