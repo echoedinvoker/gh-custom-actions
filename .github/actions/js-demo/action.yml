@@ -1,0 +1,5 @@
+name: 'JavaScript Action Demo'
+description: 'Demonstration of a JavaScript action with log a simple message.'
+runs:
+  using: 'node16'
+  main: 'main.js'
