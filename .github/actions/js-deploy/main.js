@@ -18,6 +18,7 @@
 // run();
 //
 const { execSync } = require('child_process');
+const fs = require('fs');
 
 async function run() {
   try {
@@ -43,7 +44,11 @@ async function run() {
 
     // 設定 output (GitHub Actions 格式)
     const webURL = `http://${bucketName}.s3-website-${region}.amazonaws.com`;
-    console.log(`::set-output name=web-url::${webURL}`);
+    const githubOutput = process.env.GITHUB_OUTPUT;
+    
+    if (githubOutput) {
+      fs.appendFileSync(githubOutput, `web-url=${webURL}\n`);
+    }
     
   } catch (error) {
     console.error(`::error::${error.message}`);
