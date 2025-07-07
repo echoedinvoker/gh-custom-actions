@@ -1,8 +1,8 @@
 FROM doctrine/nodejs-aws-cli
 
-WORKDIR /app
+USER root
 
-COPY package.json .
+WORKDIR /app
 
 COPY main.js .
 
