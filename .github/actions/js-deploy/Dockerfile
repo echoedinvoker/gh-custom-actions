@@ -1,9 +1,8 @@
-FROM sleavely/node-awscli:20
+FROM doctrine/nodejs-aws-cli
 
 WORKDIR /app
 
 COPY package.json .
-RUN npm install
 
 COPY main.js .
 
